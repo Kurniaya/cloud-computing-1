@@ -1,10 +1,7 @@
 pipeline {
     agent any
     environment {
-        // UBAH 'youruser' DENGAN USERNAME DOCKER HUB ANDA
         IMAGE_NAME = 'kurniaya/cloud-computing-1'
-        
-        // PASTIKAN ID INI SAMA DENGAN ID CREDENTIAL DI JENKINS
         REGISTRY_CREDENTIALS = 'dockerhub-credentials'
     }
     stages {
@@ -28,9 +25,12 @@ pipeline {
             }
         }
     }
-}
-post {
-        always {
-            echo 'Selesai build 🏁OYYY'
+    post {
+        success {
+            echo 'Pipeline berhasil dijalankan dan image berhasil di-push ke Docker Hub!'
+        }
+        failure {
+            echo 'Pipeline gagal, silakan periksa kembali log error.'
         }
     }
+}
