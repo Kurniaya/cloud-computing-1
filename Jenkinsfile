@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // UBAH 'youruser' DENGAN USERNAME DOCKER HUB ANDA
-        IMAGE_NAME = 'kurniaya'
+        IMAGE_NAME = 'kurniaya/cloud-computing-1'
         
         // PASTIKAN ID INI SAMA DENGAN ID CREDENTIAL DI JENKINS
         REGISTRY_CREDENTIALS = 'dockerhub-credentials'
